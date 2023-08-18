@@ -27,7 +27,3 @@ export const posts = [
     updatedAt: "a month ago",
   },
 ];
-
-
-
-
