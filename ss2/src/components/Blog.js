@@ -21,7 +21,7 @@ class Blog extends React.Component {
             <tbody>
               {this.props.list.map((el, index) => {
                 return (
-                  <tr>
+                  <tr key={`el_${index}`}>
                     <td>{index + 1}</td>
                     <td>{el.title}</td>
                     <td>{el.category}</td>
