@@ -3,11 +3,12 @@ import { posts } from "../data/data";
 import { Link } from "react-router-dom";
 
 export default function Blog() {
-  const data = posts;
-  console.log(JSON.stringify(data));
-  const [blogs, setBlogs] = useState(data);
 
-  const handleDelete = (id) => {};
+  const [blogs, setBlogs] = useState(posts);
+
+  const handleDelete = (id) => {
+    
+  };
 
   return (
     <>
