@@ -88,7 +88,7 @@ class Blog extends React.Component {
         this.setState((prev) => ({
           ...prev,
           blogs: prev.blogs.map((el) => {
-            return el.id === this.state.formData.id ? updatedBlog : el;
+            return el.id === updatedBlog.id ? updatedBlog : el;
           }),
           updateModal: false,
           createModal: false,

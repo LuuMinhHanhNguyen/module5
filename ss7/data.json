@@ -1,0 +1,102 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Identifying a Suitable Crypto Wallet for Online Gaming",
+      "thumbnail_url": "https://bitcoinist.com/wp-content/uploads/2023/01/crypto-wallet_pixabay.jpg",
+      "slug": "identifying-a-suitable-crypto-wallet-for-online-gaming",
+      "category": "Industry"
+    },
+    {
+      "id": 2,
+      "title": "Starting Off Strong: LUNC Burn Rate Is Already Up 6,940% In 2023",
+      "thumbnail_url": "https://bitcoinist.com/wp-content/uploads/2023/01/Terra-Classic-LUNC.jpeg",
+      "slug": "starting-off-strong-lunc-burn-rate-is-already-up-6940-in-2023",
+      "category": "LUNA"
+    },
+    {
+      "id": 3,
+      "title": "Why This Gemini Founder Called Out Barry Silbert: 340,000 Earns Users Are “Tired”",
+      "thumbnail_url": "https://bitcoinist.com/wp-content/uploads/2022/12/Winklevoss.png",
+      "slug": "why-this-gemini-founder-called-out-barry-silbert-340000-earns-users-are-tired",
+      "category": "Breaking News Ticker"
+    },
+    {
+      "id": 4,
+      "title": "IMF Head Warns Of Collective Recession, How It Could Impact Bitcoin",
+      "thumbnail_url": "https://bitcoinist.com/wp-content/uploads/2023/01/daniel-thomas-WmsFE6YhYIM-unsplash-scaled.jpg",
+      "slug": "imf-head-warns-of-collective-recession-how-it-could-impact-bitcoin",
+      "category": "Bitcoin"
+    },
+    {
+      "id": 5,
+      "title": " Trouble brewing for the US: Two-thirds of TradFi expects a 2023 recession ",
+      "thumbnail_url": "https://images.cointelegraph.com/cdn-cgi/image/format=auto,onerror=redirect,quality=90,width=1434/https://s3.cointelegraph.com/uploads/2023-01/30f859e2-9223-41c7-8d8b-049d04272dc3.jpg",
+      "slug": "trouble-brewing-for-the-us-twothirds-of-tradfi-expects-a-2023-recession",
+      "category": " News "
+    },
+    {
+      "id": 6,
+      "title": "Bitcoin Bullish Signal: Exchange Whale Ratio Continues To Decline",
+      "thumbnail_url": "https://bitcoinist.com/wp-content/uploads/2023/01/dylan-leagh-qnVXHhUP0xU-unsplash-scaled.jpg",
+      "slug": "bitcoin-bullish-signal-exchange-whale-ratio-continues-to-decline",
+      "category": "Bitcoin"
+    },
+    {
+      "id": 7,
+      "title": " Crypto exchange adoption boosts ENS registrations over 2.2M ",
+      "thumbnail_url": "https://images.cointelegraph.com/cdn-cgi/image/format=auto,onerror=redirect,quality=90,width=1434/https://s3.cointelegraph.com/uploads/2023-01/4940de32-dcd1-453d-9a98-296638e2ac2d.jpg",
+      "slug": "crypto-exchange-adoption-boosts-ens-registrations-over-22m",
+      "category": " News "
+    },
+    {
+      "id": 8,
+      "title": " Türkiye to use blockchain-based digital identity for online public services ",
+      "thumbnail_url": "https://images.cointelegraph.com/cdn-cgi/image/format=auto,onerror=redirect,quality=90,width=1434/https://s3.cointelegraph.com/uploads/2023-01/03efaafc-c219-4f36-bc46-bcfbf28a5f1e.jpg",
+      "slug": "trkiye-to-use-blockchainbased-digital-identity-for-online-public-services",
+      "category": " News "
+    },
+    {
+      "id": 9,
+      "title": " Dogecoin Foundation announces new fund for core developers ",
+      "thumbnail_url": "https://images.cointelegraph.com/cdn-cgi/image/format=auto,onerror=redirect,quality=90,width=1434/https://s3.cointelegraph.com/uploads/2023-01/8a698057-b23a-431e-9336-63e056b1d2b5.jpg",
+      "slug": "dogecoin-foundation-announces-new-fund-for-core-developers",
+      "category": " News "
+    },
+    {
+      "id": 10,
+      "title": "Ripple vs. SEC Verdict Likely As Hinman Docs Not So Important? Lawyers Argue",
+      "thumbnail_url": "https://bitcoinist.com/wp-content/uploads/2022/12/SEC-vs-Ripple.jpg",
+      "slug": "ripple-vs-sec-verdict-likely-as-hinman-docs-not-so-important-lawyers-argue",
+      "category": "Ripple"
+    },
+    {
+      "id": 11,
+      "title": " Sam Bankman-Fried’s Alameda Research troubles predate FTX: Report  ",
+      "thumbnail_url": "https://images.cointelegraph.com/cdn-cgi/image/format=auto,onerror=redirect,quality=90,width=1434/https://s3.cointelegraph.com/uploads/2023-01/6089b923-119e-4c1a-96f9-342dde4a11c8.jpg",
+      "slug": "sam-bankmanfrieds-alameda-research-troubles-predate-ftx-report",
+      "category": " News "
+    },
+    {
+      "id": 12,
+      "title": "Top 5 Cryptocurrencies To Monitor This Week",
+      "thumbnail_url": "https://bitcoinist.com/wp-content/uploads/2023/01/Crypto.png",
+      "slug": "top-5-cryptocurrencies-to-monitor-this-week",
+      "category": "Crypto News"
+    },
+    {
+      "title": "hi hi",
+      "category": "hih",
+      "thumbnail_url": "hihi",
+      "slug": "hi-hi",
+      "id": 13
+    },
+    {
+      "title": "yo yoy oy o",
+      "category": "vvv",
+      "thumbnail_url": "jiijiji",
+      "slug": "yo-yoy oy o",
+      "id": 14
+    }
+  ]
+}
