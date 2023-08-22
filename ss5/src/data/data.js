@@ -1,4 +1,4 @@
-export const posts = [
+export let posts = [
   {
     id: 1,
     title: "5 Best Crypto Performers During The 2022 Market Flop",
