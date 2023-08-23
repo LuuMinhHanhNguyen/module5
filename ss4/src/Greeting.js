@@ -3,7 +3,10 @@ export default function Greeting() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
 
-  useEffect(() => {}, [firstName, lastName]);
+  useEffect(() => {
+    window.localStorage.setItem("firstName", firstName);
+    window.localStorage.setItem("lastName", lastName);
+  }, [firstName, lastName]);
 
   return (
     <>

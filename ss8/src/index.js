@@ -7,13 +7,20 @@ import "bootstrap/dist/css/bootstrap.css";
 import { Provider } from "react-redux";
 import { combineReducers, createStore, applyMiddleware } from "redux";
 import createSagaMiddleware from "redux-saga";
-import usersReducer from "./redux/reducer";
-import mySaga from "./saga/mySaga";
+import postsReducer from "./redux/reducer";
+import postSaga from "./saga/PostSaga";
+
+// 0 - set up rootReducer and store, then run sagaMiddleware.run(mySaga)
+const sagaMiddleware = createSagaMiddleware();
+// Creates a Redux middleware and connects the Sagas to the Redux Store
+const rootReducer = combineReducers({ postsReducer });
+const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
+sagaMiddleware.run(postSaga);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Provider>
+    <Provider store={store}>
       <App />
     </Provider>
   </React.StrictMode>

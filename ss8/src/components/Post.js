@@ -1,38 +1,72 @@
 import React, { useEffect, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
-import { getPosts, addPost } from "../service/PostService";
 import { Modal } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getPostsFetch,
+  createPost,
+  deletePost,
+  updatePost,
+} from "../redux/action";
 
 export default function Post() {
-  const [posts, setPosts] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useDispatch();
+  const posts = useSelector((state) => state.postsReducer.posts);
+  const [isReloaded, setIsReloaded] = useState(true);
+  const [updatedPost, setUpdatedPost] = useState({});
 
-  async function getAllPosts() {
-    const data = await getPosts();
-    setPosts(data);
-  }
   const handleSubmit = (values) => {
-    addPost({ ...values, slug: values.title.toLowerCase().replace(" ", "-") });
-    alert("Successfully added!");
+    const post = {
+      ...values,
+      slug: values.title.toLowerCase().replaceAll(" ", "-"),
+    };
+    if (values.id) {
+      dispatch(updatePost(post));
+      alert("Successfully updated!");
+      setUpdatedPost({});
+    } else {
+      dispatch(createPost(post));
+      alert("Successfully added!");
+    }
+
+    setIsReloaded((prev) => !prev);
     setIsOpen(false);
   };
 
+  const handleDelete = (id) => {
+    const cf = window.confirm("Are u sure to delete ID " + id + " ?");
+    if (cf) dispatch(deletePost(id));
+    setIsReloaded((prev) => !prev);
+  };
+
+  const handleUpdate = (el) => {
+    setUpdatedPost(el);
+    setIsOpen(true);
+  };
+  // const showPosts = () => {
+  //   dispatch(getPostsFetch());
+  // };
+
   useEffect(() => {
-    getAllPosts();
-  }, []);
+    dispatch(getPostsFetch());
+  }, [isReloaded]);
 
   return (
     <>
       <div className=" container my-2">
         <h1>List Posts</h1>
+        {/* <button onClick={showPosts} className=" btn btn-info mb-3">
+          Show Posts
+        </button> */}
         <button
           onClick={() => setIsOpen(true)}
           className=" btn btn-outline-info mb-3"
         >
           Create
         </button>
-        <table className=" table">
+        <table className=" table table-bordered table-fixed">
           <thead className=" table-dark">
             <tr>
               <td>ID</td>
@@ -40,6 +74,8 @@ export default function Post() {
               <td>Slug</td>
               <td>Category</td>
               <td>Thumbnail URL</td>
+              <td>Action</td>
+              <td>Action</td>
             </tr>
           </thead>
           <tbody>
@@ -52,23 +88,51 @@ export default function Post() {
                     <td>{el.slug}</td>
                     <td>{el.category}</td>
                     <td>{el.thumbnail_url}</td>
+                    <td>
+                      <button
+                        onClick={() => handleDelete(el.id)}
+                        className=" btn btn-danger"
+                      >
+                        DELETE
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        onClick={() => handleUpdate(el)}
+                        className=" btn btn-success"
+                      >
+                        UPDATE
+                      </button>
+                    </td>
                   </tr>
                 );
               })}
           </tbody>
         </table>
       </div>
-      <Modal show={isOpen} onHide={() => setIsOpen(false)}>
+      <Modal
+        show={isOpen}
+        onHide={() => {
+          setIsOpen(false);
+          setUpdatedPost({});
+        }}
+      >
         <Modal.Header closeButton>
-          <Modal.Title>Create New Post</Modal.Title>
+          <Modal.Title>
+            {updatedPost.id ? "Update Post" : "Create New Post"}
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Formik
-            initialValues={{
-              title: "",
-              category: "",
-              thumbnail_url: "",
-            }}
+            initialValues={
+              updatedPost.id
+                ? { ...updatedPost }
+                : {
+                    title: "",
+                    category: "",
+                    thumbnail_url: "",
+                  }
+            }
             validationSchema={yup.object({
               title: yup.string().required("Please fill in title!"),
               category: yup.string().required("Please fill in category!"),
@@ -123,7 +187,7 @@ export default function Post() {
               </div>
               <br />
               <button type="submit" className=" btn btn-info">
-                Create
+                {updatedPost.id ? "Update" : "Create"}
               </button>
             </Form>
           </Formik>

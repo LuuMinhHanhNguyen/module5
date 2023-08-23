@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* how we can force table to have even cells */
+.table-fixed{
+  width: 100%;
+  table-layout: fixed;
+}
+td {
+  overflow: auto;
+  /* white-space: nowrap; */
+}
