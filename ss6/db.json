@@ -1,0 +1,54 @@
+{
+  "posts": [
+    {
+      "title": "1",
+      "category": "1",
+      "content": "1",
+      "author": "1",
+      "author_email": "y@gmail.com",
+      "slug": "1",
+      "updatedAt": "August 25, 2023 2:42:48 AM",
+      "id": 1
+    },
+    {
+      "title": "3",
+      "category": "3",
+      "content": "3",
+      "author": "3",
+      "author_email": "y@gmail.com",
+      "slug": "3",
+      "updatedAt": "August 25, 2023 2:43:07 AM",
+      "id": 3
+    },
+    {
+      "title": "4",
+      "category": "4",
+      "content": "4",
+      "author": "4",
+      "author_email": "y@gmail.com",
+      "slug": "4",
+      "updatedAt": "August 25, 2023 2:43:16 AM",
+      "id": 4
+    },
+    {
+      "title": "5",
+      "category": "5",
+      "content": "5",
+      "author": "5",
+      "author_email": "y@gmail.com",
+      "slug": "5",
+      "updatedAt": "August 25, 2023 2:43:27 AM",
+      "id": 5
+    },
+    {
+      "title": "2",
+      "category": "2",
+      "content": "2",
+      "author": "2",
+      "author_email": "y12@gmail.com",
+      "slug": "2",
+      "updatedAt": "August 25, 2023 2:46:20 AM",
+      "id": 6
+    }
+  ]
+}
