@@ -1,0 +1,273 @@
+{
+  "customers": [
+    {
+      "name": "hi",
+      "dob": "2023-06-26",
+      "address": "fff",
+      "email": "keit@gmail.com",
+      "phone": "0777777777",
+      "gender": "female",
+      "customerType": {
+        "id": 3,
+        "name": "Gold"
+      },
+      "idCard": "7772221111",
+      "id": 1
+    },
+    {
+      "name": "keit ng",
+      "dob": "2000-07-07",
+      "address": "TTD",
+      "email": "keit@gmail.com",
+      "phone": "0987654321",
+      "gender": "male",
+      "customerType": {
+        "id": 3,
+        "name": "Gold"
+      },
+      "idCard": "7772221111",
+      "id": 2
+    },
+    {
+      "name": "Hana",
+      "dob": "1991-11-11",
+      "address": "us",
+      "email": "mh@gmail.com",
+      "phone": "0777777777",
+      "gender": "female",
+      "customerType": {
+        "id": 2,
+        "name": "Platinium"
+      },
+      "idCard": "7772222222",
+      "id": 3
+    },
+    {
+      "name": "hih",
+      "dob": "1998-11-11",
+      "address": "TTD",
+      "email": "hannahluu777@gmail.com",
+      "phone": "0777777777",
+      "gender": "female",
+      "customerType": {
+        "id": 3,
+        "name": "Gold"
+      },
+      "idCard": "7772221111",
+      "id": 4
+    },
+    {
+      "name": "1",
+      "dob": "1911-11-11",
+      "address": "11",
+      "email": "mh@gmail.com",
+      "phone": "0987654321",
+      "gender": "male",
+      "customerType": {
+        "id": 4,
+        "name": "Silver"
+      },
+      "idCard": "7772221111",
+      "id": 5
+    }
+  ],
+  "customerType": [
+    {
+      "id": 1,
+      "name": "Diamond"
+    },
+    {
+      "id": 2,
+      "name": "Platinium"
+    },
+    {
+      "id": 3,
+      "name": "Gold"
+    },
+    {
+      "id": 4,
+      "name": "Silver"
+    },
+    {
+      "id": 5,
+      "name": "Member"
+    }
+  ],
+  "services": [
+    {
+      "id": 1,
+      "name": "Villa",
+      "area": 100,
+      "cost": 222,
+      "maximum": 20,
+      "typeOfHiring": {
+        "id": 4,
+        "name": "hour"
+      }
+    },
+    {
+      "id": 2,
+      "name": "House",
+      "area": 77,
+      "cost": 111,
+      "maximum": 5,
+      "typeOfHiring": {
+        "id": 2,
+        "name": "month"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Room",
+      "area": 100,
+      "cost": 222,
+      "maximum": 20,
+      "typeOfHiring": {
+        "id": 3,
+        "name": "day"
+      }
+    }
+  ],
+  "typeOfHiring": [
+    {
+      "id": 1,
+      "name": "year"
+    },
+    {
+      "id": 2,
+      "name": "month"
+    },
+    {
+      "id": 3,
+      "name": "day"
+    },
+    {
+      "id": 4,
+      "name": "hour"
+    }
+  ],
+  "facilityTypes": [
+    {
+      "id": 1,
+      "name": "Room"
+    },
+    {
+      "id": 2,
+      "name": "Villa"
+    },
+    {
+      "id": 3,
+      "name": "House"
+    }
+  ],
+  "facilities": [
+    {
+      "name": "Villa By the Hank",
+      "area": 110,
+      "cost": 2222,
+      "capacity": 10,
+      "image": "images/img_2.jpg",
+      "type": {
+        "id": 2,
+        "name": "Villa"
+      },
+      "id": 1
+    },
+    {
+      "name": "House - Head In The Clouds",
+      "area": 50,
+      "cost": 1000,
+      "capacity": 4,
+      "image": "images/img_1.jpg",
+      "type": {
+        "id": 3,
+        "name": "House"
+      },
+      "id": 2
+    },
+    {
+      "name": "Villa - In the Middle of Nowhere",
+      "area": 185,
+      "cost": 3222,
+      "capacity": 16,
+      "image": "images/img_4.jpg",
+      "type": {
+        "id": 2,
+        "name": "Villa"
+      },
+      "id": 4
+    },
+    {
+      "name": "House - To the Moon and Back ",
+      "area": 77,
+      "cost": 777,
+      "capacity": 5,
+      "image": "images/img_5.jpg",
+      "type": {
+        "id": 3,
+        "name": "House"
+      },
+      "id": 5
+    },
+    {
+      "name": "Room - As The Days Fall Into Darkness",
+      "area": 33,
+      "cost": 789,
+      "capacity": 3,
+      "image": "images/img_6.jpg",
+      "type": {
+        "id": 1,
+        "name": "Room"
+      },
+      "id": 6
+    },
+    {
+      "name": "Villa - Shout Into The Void",
+      "area": 177,
+      "cost": 2277,
+      "capacity": 10,
+      "image": "images/img_7.jpg",
+      "type": {
+        "id": 2,
+        "name": "Villa"
+      },
+      "id": 7
+    },
+    {
+      "name": "House - One Among Those Startgazers",
+      "area": 88,
+      "cost": 888,
+      "capacity": 8,
+      "image": "images/img_8.jpg",
+      "type": {
+        "id": 3,
+        "name": "House"
+      },
+      "id": 8
+    },
+    {
+      "name": "Room - Towards the Sun with No Return",
+      "area": 62,
+      "cost": 1661,
+      "capacity": 3,
+      "image": "images/room.png",
+      "type": {
+        "id": 1,
+        "name": "Room"
+      },
+      "id": 9
+    },
+    {
+      "name": "Room - On Clouds Nine",
+      "area": 39,
+      "cost": 999,
+      "capacity": 3,
+      "image": "images/img_3.jpg",
+      "type": {
+        "id": 1,
+        "name": "Room"
+      },
+      "id": 10
+    }
+  ]
+}

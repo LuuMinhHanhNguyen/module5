@@ -1,4 +1,4 @@
-export default function ListCustomer() {
+export default function ListContract() {
   return (
     <>
       <section className="ftco-section">

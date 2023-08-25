@@ -54,7 +54,7 @@ export default function Header() {
                   <a>Services</a>
                   <ul className="dropdown">
                     <li>
-                      <Link to="/services">List Of Facilities</Link>
+                      <Link to="/">List Of Facilities</Link>
                     </li>
                     <li>
                       <Link to="/facilities/create">Create New Facility</Link>
@@ -93,7 +93,7 @@ export default function Header() {
               <nav aria-label="breadcrumb">
                 <ol className="breadcrumb text-center justify-content-center">
                   <li className="breadcrumb-item">
-                    <a href="index.html">Our Servies</a>
+                    <a href="">Our Servies</a>
                   </li>
                   <li
                     className="breadcrumb-item active text-white-50"

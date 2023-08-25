@@ -16,7 +16,15 @@ export default function CreateCustomer() {
   }
 
   async function createCustomer(values) {
-    addCustomer({ ...values, customerType: JSON.parse(values.customerType) });
+    const newCus = {
+      ...values,
+      customerType: JSON.parse(values.customerType),
+    };
+    addCustomer({
+      ...values,
+      customerType: JSON.parse(values.customerType),
+    });
+    console.log(newCus);
     swal("Successfully added!", "", "success");
     navigate("/customers");
   }

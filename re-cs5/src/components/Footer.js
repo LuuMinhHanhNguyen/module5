@@ -1,3 +1,12 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faInstagram,
+  faTwitter,
+  faTiktok,
+  faAmazon,
+  faReddit,
+} from "@fortawesome/free-brands-svg-icons";
 export default function Footer() {
   return (
     <>
@@ -83,33 +92,51 @@ export default function Footer() {
 
                 <ul className="list-unstyled social">
                   <li>
-                    <a href="#">
-                      <span className="icon-instagram"></span>
+                    <a
+                      href="#"
+                      className=" d-flex justify-content-center align-items-center"
+                    >
+                      <FontAwesomeIcon icon={faAmazon} />
                     </a>
                   </li>
                   <li>
-                    <a href="#">
-                      <span className="icon-twitter"></span>
+                    <a
+                      href="#"
+                      className=" d-flex justify-content-center align-items-center"
+                    >
+                      <FontAwesomeIcon icon={faTwitter} />
                     </a>
                   </li>
                   <li>
-                    <a href="#">
-                      <span className="icon-facebook"></span>
+                    <a
+                      href="#"
+                      className=" d-flex justify-content-center align-items-center"
+                    >
+                      <FontAwesomeIcon icon={faFacebook} />
                     </a>
                   </li>
                   <li>
-                    <a href="#">
-                      <span className="icon-linkedin"></span>
+                    <a
+                      href="#"
+                      className=" d-flex justify-content-center align-items-center"
+                    >
+                      <FontAwesomeIcon icon={faReddit} />
                     </a>
                   </li>
                   <li>
-                    <a href="#">
-                      <span className="icon-pinterest"></span>
+                    <a
+                      href="#"
+                      className=" d-flex justify-content-center align-items-center"
+                    >
+                      <FontAwesomeIcon icon={faTiktok} />
                     </a>
                   </li>
                   <li>
-                    <a href="#">
-                      <span className="icon-dribbble"></span>
+                    <a
+                      href="#"
+                      className=" d-flex justify-content-center align-items-center"
+                    >
+                      <FontAwesomeIcon icon={faInstagram} />
                     </a>
                   </li>
                 </ul>

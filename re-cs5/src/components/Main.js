@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import swal from "sweetalert";
 export default function Main() {
   const [facilities, setFacilities] = useState([]);
+  const [page, setPage] = useState(1);
 
   async function findAll() {
     const data = await getAll();
@@ -92,13 +93,9 @@ export default function Main() {
             <div className="col-lg-3">Pagination (1 of 10)</div>
             <div className="col-lg-6 text-center">
               <div className="custom-pagination">
-                <a href="#">1</a>
-                <a href="#" className="active">
-                  2
-                </a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
+                <button className=" btn btn--green">Previous</button>
+                <span> {page} </span>
+                <button className=" btn btn--green">Next</button>
               </div>
             </div>
           </div>
