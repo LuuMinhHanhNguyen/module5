@@ -8,6 +8,8 @@ export async function getAll(page) {
   const response = await axios.get(
     `http://localhost:8080/facilities?_page=${page}&_limit=3`
   );
+  console.log("uouo");
+  console.log(JSON.stringify(response));
   return response.data;
 }
 

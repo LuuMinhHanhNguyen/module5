@@ -1,33 +1,49 @@
 import { useState } from "react";
-import { getAllCustomers, deleteCustomer } from "../service/customerService";
+import { deleteCustomer, searchCustomers } from "../service/customerService";
 import { Link } from "react-router-dom";
 import swal from "sweetalert";
 
 export default function ListCustomer() {
   const [customers, setCustomers] = useState([]);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
+  let searchInfo = document.querySelector(".search")
+    ? document.querySelector(".search").value
+    : "";
 
   useState(() => {
-    getAll();
+    handleSearch();
   }, [page]);
 
-  async function getAll() {
-    const data = await getAllCustomers(page);
-    setCustomers(data);
+  async function handleSearch() {
+    searchInfo = document.querySelector(".search")
+      ? document.querySelector(".search").value
+      : "";
+    setPage(0);
+    const response = await searchCustomers(searchInfo, page, 2);
+    setCustomers(response);
   }
 
   async function handlePreviousPage() {
+    searchInfo = document.querySelector(".search")
+      ? document.querySelector(".search").value
+      : "";
+    console.log(searchInfo);
     const prevPage = page - 1;
-    if (page > 1) {
-      const data = await getAllCustomers(prevPage);
+    if (page > 0) {
+      const data = await searchCustomers(searchInfo, prevPage, 2);
       setCustomers(data);
       setPage(prevPage);
     }
   }
 
   async function handleNextPage() {
+    searchInfo = document.querySelector(".search")
+      ? document.querySelector(".search").value
+      : "";
+    console.log(searchInfo);
     const nextPage = page + 1;
-    const data = await getAllCustomers(nextPage);
+    const data = await searchCustomers(searchInfo, nextPage, 2);
+
     if (data.length > 0) {
       setCustomers(data);
       setPage(nextPage);
@@ -44,15 +60,11 @@ export default function ListCustomer() {
     }).then((willDelete) => {
       if (willDelete) {
         deleteCustomer(id).then(() => {
-          getAll();
+          handleSearch();
         });
 
         swal("Successfully deleted!", "", "success");
-        // window.location.reload();
       }
-      // else {
-      //   swal("Your imaginary file is safe!");
-      // }
     });
   }
 
@@ -60,6 +72,20 @@ export default function ListCustomer() {
     <>
       <section className="ftco-section">
         <div className="container my-5">
+          <div className=" col">
+            <input
+              type="text"
+              placeholder="Search for name:"
+              className=" form-control w-25 d-inline search"
+            ></input>
+            <button
+              type="button"
+              className="btn btn-info mx-3 "
+              onClick={handleSearch}
+            >
+              Search
+            </button>
+          </div>
           <div className="row justify-content-center">
             <div className="col-md-6 text-center mb-2">
               <h1 className="heading-section">Customer List</h1>
@@ -125,8 +151,7 @@ export default function ListCustomer() {
         </div>
       </section>
 
-      <div className="row align-items-center py-5">
-        <div className="col-lg-3">Pagination (1 of 10)</div>
+      <div className="row align-items-center justify-content-center py-5">
         <div className="col-lg-6 text-center">
           <div className="custom-pagination">
             <button onClick={handlePreviousPage} className="btn btn-info">

@@ -1,7 +1,7 @@
 {
   "customers": [
     {
-      "name": "hi",
+      "name": "1",
       "dob": "2023-06-26",
       "address": "fff",
       "email": "keit@gmail.com",
@@ -15,7 +15,7 @@
       "id": 1
     },
     {
-      "name": "keit ng",
+      "name": "11",
       "dob": "2000-07-07",
       "address": "TTD",
       "email": "keit@gmail.com",
@@ -29,7 +29,7 @@
       "id": 2
     },
     {
-      "name": "Hana",
+      "name": "3",
       "dob": "1991-11-11",
       "address": "us",
       "email": "mh@gmail.com",
@@ -43,7 +43,7 @@
       "id": 3
     },
     {
-      "name": "hih",
+      "name": "111",
       "dob": "1998-11-11",
       "address": "TTD",
       "email": "hannahluu777@gmail.com",
@@ -57,7 +57,7 @@
       "id": 4
     },
     {
-      "name": "1",
+      "name": "ha",
       "dob": "1911-11-11",
       "address": "11",
       "email": "mh@gmail.com",
@@ -69,6 +69,20 @@
       },
       "idCard": "7772221111",
       "id": 5
+    },
+    {
+      "name": "6",
+      "dob": "2000-11-11",
+      "address": "Australia",
+      "email": "keit@gmail.com",
+      "phone": "0987654321",
+      "gender": "male",
+      "customerType": {
+        "id": 4,
+        "name": "Silver"
+      },
+      "idCard": "1231231231",
+      "id": 6
     }
   ],
   "customerType": [
@@ -93,59 +107,59 @@
       "name": "Member"
     }
   ],
-  "services": [
-    {
-      "id": 1,
-      "name": "Villa",
-      "area": 100,
-      "cost": 222,
-      "maximum": 20,
-      "typeOfHiring": {
-        "id": 4,
-        "name": "hour"
-      }
-    },
-    {
-      "id": 2,
-      "name": "House",
-      "area": 77,
-      "cost": 111,
-      "maximum": 5,
-      "typeOfHiring": {
-        "id": 2,
-        "name": "month"
-      }
-    },
-    {
-      "id": 3,
-      "name": "Room",
-      "area": 100,
-      "cost": 222,
-      "maximum": 20,
-      "typeOfHiring": {
-        "id": 3,
-        "name": "day"
-      }
-    }
-  ],
-  "typeOfHiring": [
-    {
-      "id": 1,
-      "name": "year"
-    },
-    {
-      "id": 2,
-      "name": "month"
-    },
-    {
-      "id": 3,
-      "name": "day"
-    },
-    {
-      "id": 4,
-      "name": "hour"
-    }
-  ],
+  // "services": [
+  //   {
+  //     "id": 1,
+  //     "name": "Villa",
+  //     "area": 100,
+  //     "cost": 222,
+  //     "maximum": 20,
+  //     "typeOfHiring": {
+  //       "id": 4,
+  //       "name": "hour"
+  //     }
+  //   },
+  //   {
+  //     "id": 2,
+  //     "name": "House",
+  //     "area": 77,
+  //     "cost": 111,
+  //     "maximum": 5,
+  //     "typeOfHiring": {
+  //       "id": 2,
+  //       "name": "month"
+  //     }
+  //   },
+  //   {
+  //     "id": 3,
+  //     "name": "Room",
+  //     "area": 100,
+  //     "cost": 222,
+  //     "maximum": 20,
+  //     "typeOfHiring": {
+  //       "id": 3,
+  //       "name": "day"
+  //     }
+  //   }
+  // ],
+  // "typeOfHiring": [
+  //   {
+  //     "id": 1,
+  //     "name": "year"
+  //   },
+  //   {
+  //     "id": 2,
+  //     "name": "month"
+  //   },
+  //   {
+  //     "id": 3,
+  //     "name": "day"
+  //   },
+  //   {
+  //     "id": 4,
+  //     "name": "hour"
+  //   }
+  // ],
   "facilityTypes": [
     {
       "id": 1,

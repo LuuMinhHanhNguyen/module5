@@ -7,9 +7,28 @@ export default function Main() {
   const [page, setPage] = useState(1);
 
   async function findAll() {
-    const data = await getAll();
+    const data = await getAll(page);
     setFacilities(data);
   }
+
+  const handlePrevious = () => {
+    const prevPage = page - 1;
+
+    if (page > 1) {
+      setPage(prevPage);
+      document.querySelector(".nextButton").disabled = false;
+    } else document.querySelector(".prevButton").disabled = true;
+  };
+
+  const handleNext = async () => {
+    const nextPage = page + 1;
+
+    const data = await getAll(nextPage);
+    if (data.length > 0) {
+      setPage(nextPage);
+      document.querySelector(".prevButton").disabled = false;
+    } else document.querySelector(".nextButton").disabled = true;
+  };
 
   function handleDelete(id, name) {
     swal({
@@ -30,7 +49,7 @@ export default function Main() {
 
   useEffect(() => {
     findAll();
-  }, []);
+  }, [page]);
 
   return (
     <>
@@ -89,13 +108,22 @@ export default function Main() {
                 );
               })}
           </div>
-          <div className="row align-items-center py-5">
-            <div className="col-lg-3">Pagination (1 of 10)</div>
-            <div className="col-lg-6 text-center">
+          <div className="row align-items-center py-5 justify-content-center">
+            <div className="col-lg-6 text-center ">
               <div className="custom-pagination">
-                <button className=" btn btn--green">Previous</button>
+                <button
+                  className=" btn btn--green prevButton"
+                  onClick={handlePrevious}
+                >
+                  Previous
+                </button>
                 <span> {page} </span>
-                <button className=" btn btn--green">Next</button>
+                <button
+                  className=" btn btn--green nextButton"
+                  onClick={handleNext}
+                >
+                  Next
+                </button>
               </div>
             </div>
           </div>
