@@ -4,17 +4,17 @@ import { Link } from "react-router-dom";
 import swal from "sweetalert";
 export default function Main() {
   const [facilities, setFacilities] = useState([]);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
+  const limit = 3;
 
   async function findAll() {
-    const data = await getAll(page);
+    const data = await getAll("", page, limit);
     setFacilities(data);
   }
 
   const handlePrevious = () => {
     const prevPage = page - 1;
-
-    if (page > 1) {
+    if (page > 0) {
       setPage(prevPage);
       document.querySelector(".nextButton").disabled = false;
     } else document.querySelector(".prevButton").disabled = true;
@@ -23,7 +23,7 @@ export default function Main() {
   const handleNext = async () => {
     const nextPage = page + 1;
 
-    const data = await getAll(nextPage);
+    const data = await getAll("", nextPage, limit);
     if (data.length > 0) {
       setPage(nextPage);
       document.querySelector(".prevButton").disabled = false;
@@ -83,7 +83,7 @@ export default function Main() {
                           <div className=" d-flex justify-content-between mb-3">
                             <p>Capacity: {facility.capacity}</p>
                             <p>Area: {facility.area} m2</p>
-                            <p>Type: {facility.type.name}</p>
+                            <p>Type: {facility.facilityType.name}</p>
                           </div>
 
                           <Link
@@ -117,7 +117,7 @@ export default function Main() {
                 >
                   Previous
                 </button>
-                <span> {page} </span>
+                <span> {page + 1} </span>
                 <button
                   className=" btn btn--green nextButton"
                   onClick={handleNext}

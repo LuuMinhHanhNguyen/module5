@@ -19,7 +19,23 @@ public class CustomerService implements ICustomerService {
     }
 
     @Override
-    public Page<Customer> getAllWithoutSearch(Pageable pageable) {
-        return iCustomerRepository.findAll(pageable);
+    public void add(Customer newCustomer) {
+        iCustomerRepository.addCustomer(newCustomer);
     }
+
+    @Override
+    public Customer findById(Long id) {
+        return iCustomerRepository.getCustomerById(id);
+    }
+
+    @Override
+    public void update(Customer customer, Long id) {
+        iCustomerRepository.updateCustomer(customer, id);
+    }
+
+    @Override
+    public void delete(Long id) {
+        iCustomerRepository.deleteCustomer(id);
+    }
+
 }

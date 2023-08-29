@@ -21,10 +21,19 @@ export default function UpdateRoom() {
     setTypes(data);
   }
 
-  function handleUpdate(values) {
-    updateFacility({ ...values, type: JSON.parse(values.type) });
-    swal("Successfully updated!", name, "success");
-    navigate("/");
+  async function handleUpdate(values, setErrors) {
+    try {
+      const res = await updateFacility({
+        ...values,
+        facilityType: JSON.parse(values.facilityType),
+      });
+      swal("Successfully updated!", name, "success");
+      navigate("/");
+    } catch (err) {
+      if (err.response && err.response.data) {
+        setErrors(err.response.data);
+      }
+    }
   }
 
   useEffect(() => {
@@ -38,19 +47,19 @@ export default function UpdateRoom() {
         <Formik
           initialValues={{
             ...facility,
-            type: JSON.stringify(facility.type),
+            facilityType: JSON.stringify(facility.facilityType),
           }}
-          validationSchema={yup.object({
-            name: yup.string().required("Please enter facility name here!"),
-            area: yup.number().required("Please fill in area of usage!"),
-            cost: yup.number().required("Please fill in cost of hiring!"),
-            capacity: yup.number().required("Please choose capacity!"),
-            image: yup
-              .string()
-              .required("Please fill in image path! (images/img_2.jpg)"),
-            type: yup.string().required("Please choose type of hiring!"),
-          })}
-          onSubmit={(values) => handleUpdate(values)}
+          // validationSchema={yup.object({
+          //   name: yup.string().required("Please enter facility name here!"),
+          //   area: yup.number().required("Please fill in area of usage!"),
+          //   cost: yup.number().required("Please fill in cost of hiring!"),
+          //   capacity: yup.number().required("Please choose capacity!"),
+          //   image: yup
+          //     .string()
+          //     .required("Please fill in image path! (images/img_2.jpg)"),
+          //   type: yup.string().required("Please choose type of hiring!"),
+          // })}
+          onSubmit={(values, { setErrors }) => handleUpdate(values, setErrors)}
         >
           <div className="page-wrapper bg-secondary p-t-180 p-b-100 font-robo">
             <div className="wrapper wrapper--w960">
@@ -145,13 +154,13 @@ export default function UpdateRoom() {
                     </div>
 
                     <div className="mb-3">
-                      <label htmlFor="type" className="label">
+                      <label htmlFor="facilityType" className="label">
                         Type Of Facility
                       </label>
                       <Field
                         as="select"
-                        id="type"
-                        name="type"
+                        id="facilityType"
+                        name="facilityType"
                         className=" form-control"
                       >
                         {types.length > 0 &&
@@ -167,7 +176,7 @@ export default function UpdateRoom() {
                           })}
                       </Field>
                       <ErrorMessage
-                        name="type"
+                        name="facilityType"
                         component="span"
                         className="error"
                       />

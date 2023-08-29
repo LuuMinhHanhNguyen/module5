@@ -3,7 +3,7 @@ package com.example.recs5backend.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "facitilies")
+@Table(name = "facilities")
 public class Facility {
 //    {
 //        "name": "Villa By the Hank",
@@ -83,5 +83,13 @@ public class Facility {
 
     public Long getId() {
         return id;
+    }
+
+    public double getArea() {
+        return area;
+    }
+
+    public void setArea(double area) {
+        this.area = area;
     }
 }

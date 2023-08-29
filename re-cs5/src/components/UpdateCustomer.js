@@ -24,14 +24,20 @@ export default function UpdateCustomer() {
     setTypes(data);
   }
 
-  function handleUpdate(customer) {
-    console.log(customer.name);
-    updateCustomer({
-      ...customer,
-      customerType: JSON.parse(customer.customerType),
-    });
-    swal("Successfully updated!", "", "success");
-    navigate("/customers");
+  async function handleUpdate(customer, setErrors) {
+    try {
+      const res = await updateCustomer({
+        ...customer,
+        customerType: JSON.parse(customer.customerType),
+      });
+      swal("Successfully updated!", "", "success");
+      navigate("/customers");
+    } catch (err) {
+      console.log(err);
+      if (err.response && err.response.data) {
+        setErrors(err.response.data);
+      }
+    }
   }
 
   useEffect(() => {
@@ -47,17 +53,17 @@ export default function UpdateCustomer() {
             ...customer,
             customerType: JSON.stringify(customer.customerType),
           }}
-          validationSchema={yup.object({
-            name: yup.string().required("Please enter your name here!"),
-            dob: yup.string().required("Please fill in your DOB!"),
-            address: yup.string().required("Please fill in your address!"),
-            email: yup.string().required("Please fill in your email!"),
-            phone: yup.string().required("Please fill in your phone!"),
-            gender: yup.string().required("Please choose your gender!"),
-            customerType: yup.string().required("Choose customer type please!"),
-            idCard: yup.string().required("ID card here!"),
-          })}
-          onSubmit={(values) => handleUpdate(values)}
+          // validationSchema={yup.object({
+          //   name: yup.string().required("Please enter your name here!"),
+          //   dob: yup.string().required("Please fill in your DOB!"),
+          //   address: yup.string().required("Please fill in your address!"),
+          //   email: yup.string().required("Please fill in your email!"),
+          //   phone: yup.string().required("Please fill in your phone!"),
+          //   gender: yup.string().required("Please choose your gender!"),
+          //   customerType: yup.string().required("Choose customer type please!"),
+          //   idCard: yup.string().required("ID card here!"),
+          // })}
+          onSubmit={(values, { setErrors }) => handleUpdate(values, setErrors)}
         >
           <div className="page-wrapper bg-secondary p-t-180 p-b-100 font-robo">
             <div className="wrapper wrapper--w960">

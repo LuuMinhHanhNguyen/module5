@@ -33,4 +33,5 @@ public class FacilityType {
     public Long getId() {
         return id;
     }
+
 }

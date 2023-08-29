@@ -15,10 +15,28 @@ export default function CreateRoom() {
     setTypes(data);
   }
 
-  function createFacility(values) {
-    addFacility({ ...values, type: JSON.parse(values.type) });
-    swal("Successfully added!", "", "success");
-    navigate("/");
+  async function createFacility(values, setErrors) {
+    const newFacility = {
+      ...values,
+      facilityType:
+        values.facilityType.length == 0
+          ? null
+          : JSON.parse(values.facilityType),
+    };
+
+    try {
+      const res = await addFacility(newFacility);
+      swal("Successfully added!", "", "success");
+      navigate("/");
+    } catch (error) {
+      if (error.response && error.response.data) {
+        console.log("hi");
+        console.log(error);
+        console.log(JSON.stringify(error.response));
+        console.log(error.response.data);
+        setErrors(error.response.data);
+      }
+    }
   }
 
   useEffect(() => {
@@ -34,19 +52,21 @@ export default function CreateRoom() {
             cost: "",
             capacity: "",
             image: "",
-            type: "",
+            facilityType: "",
           }}
-          validationSchema={yup.object({
-            name: yup.string().required("Please enter facility name here!"),
-            area: yup.number().required("Please fill in area of usage!"),
-            cost: yup.number().required("Please fill in cost of hiring!"),
-            capacity: yup.number().required("Please choose capacity!"),
-            image: yup
-              .string()
-              .required("Please fill in image path! (images/img_2.jpg)"),
-            type: yup.string().required("Please choose type of hiring!"),
-          })}
-          onSubmit={(values) => createFacility(values)}
+          // validationSchema={yup.object({
+          //   name: yup.string().required("Please enter facility name here!"),
+          //   area: yup.number().required("Please fill in area of usage!"),
+          //   cost: yup.number().required("Please fill in cost of hiring!"),
+          //   capacity: yup.number().required("Please choose capacity!"),
+          //   image: yup
+          //     .string()
+          //     .required("Please fill in image path! (images/img_2.jpg)"),
+          //   type: yup.string().required("Please choose type of hiring!"),
+          // })}
+          onSubmit={(values, { setErrors }) =>
+            createFacility(values, setErrors)
+          }
         >
           <div className="page-wrapper bg-secondary p-t-180 p-b-100 font-robo">
             <div className="wrapper wrapper--w960">
@@ -140,13 +160,13 @@ export default function CreateRoom() {
                     </div>
 
                     <div className="mb-3">
-                      <label htmlFor="type" className="label">
+                      <label htmlFor="facilityType" className="label">
                         Type Of Facility
                       </label>
                       <Field
                         as="select"
-                        id="type"
-                        name="type"
+                        id="facilityType"
+                        name="facilityType"
                         className=" form-control"
                       >
                         <option value="">--Select type here--</option>
@@ -163,7 +183,7 @@ export default function CreateRoom() {
                           })}
                       </Field>
                       <ErrorMessage
-                        name="type"
+                        name="facilityType"
                         component="span"
                         className="error"
                       />

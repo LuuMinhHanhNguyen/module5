@@ -82,7 +82,7 @@ export default function Header() {
       <div
         className="hero page-inner overlay"
         style={{
-          backgroundImage: `url("./images/hero_bg_1.jpg")`,
+          backgroundImage: 'url("./images/hero_bg_1.jpg")',
         }}
       >
         <div className="container">

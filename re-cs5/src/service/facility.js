@@ -4,13 +4,13 @@ export async function addFacility(facility) {
   await axios.post("http://localhost:8080/facilities", facility);
 }
 
-export async function getAll(page) {
+export async function getAll(name, page, limit) {
   const response = await axios.get(
-    `http://localhost:8080/facilities?_page=${page}&_limit=3`
+    `http://localhost:8080/facilities/all?name=${name}&page=${page}&limit=${limit}`
   );
   console.log("uouo");
   console.log(JSON.stringify(response));
-  return response.data;
+  return response.data.content;
 }
 
 export async function getFacility(id) {

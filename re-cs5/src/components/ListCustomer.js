@@ -9,6 +9,7 @@ export default function ListCustomer() {
   let searchInfo = document.querySelector(".search")
     ? document.querySelector(".search").value
     : "";
+  let limit = 3;
 
   useState(() => {
     handleSearch();
@@ -19,7 +20,7 @@ export default function ListCustomer() {
       ? document.querySelector(".search").value
       : "";
     setPage(0);
-    const response = await searchCustomers(searchInfo, page, 2);
+    const response = await searchCustomers(searchInfo, page, limit);
     setCustomers(response);
   }
 
@@ -30,7 +31,7 @@ export default function ListCustomer() {
     console.log(searchInfo);
     const prevPage = page - 1;
     if (page > 0) {
-      const data = await searchCustomers(searchInfo, prevPage, 2);
+      const data = await searchCustomers(searchInfo, prevPage, limit);
       setCustomers(data);
       setPage(prevPage);
     }
@@ -42,7 +43,7 @@ export default function ListCustomer() {
       : "";
     console.log(searchInfo);
     const nextPage = page + 1;
-    const data = await searchCustomers(searchInfo, nextPage, 2);
+    const data = await searchCustomers(searchInfo, nextPage, limit);
 
     if (data.length > 0) {
       setCustomers(data);
@@ -157,7 +158,7 @@ export default function ListCustomer() {
             <button onClick={handlePreviousPage} className="btn btn-info">
               Previous
             </button>
-            <span> {page} </span>
+            <span> {page + 1} </span>
             <button onClick={handleNextPage} className="btn btn-info">
               Next
             </button>

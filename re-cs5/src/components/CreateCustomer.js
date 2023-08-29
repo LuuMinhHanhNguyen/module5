@@ -15,18 +15,27 @@ export default function CreateCustomer() {
     setTypes(data);
   }
 
-  async function createCustomer(values) {
+  async function createCustomer(values, setErrors) {
     const newCus = {
       ...values,
-      customerType: JSON.parse(values.customerType),
+      customerType:
+        values.customerType.length == 0
+          ? null
+          : JSON.parse(values.customerType),
     };
-    addCustomer({
-      ...values,
-      customerType: JSON.parse(values.customerType),
-    });
-    console.log(newCus);
-    swal("Successfully added!", "", "success");
-    navigate("/customers");
+    try {
+      const res = await addCustomer(newCus);
+      swal("Successfully added!", "", "success");
+      navigate("/customers");
+    } catch (error) {
+      if (error.response && error.response.data) {
+        console.log("hi");
+        console.log(error);
+        console.log(JSON.stringify(error.response));
+        console.log(error.response.data);
+        setErrors(error.response.data);
+      }
+    }
   }
 
   useEffect(() => {
@@ -46,32 +55,32 @@ export default function CreateCustomer() {
           customerType: "",
           idCard: "",
         }}
-        validationSchema={yup.object({
-          name: yup.string().required("Please enter your name here!"),
-          dob: yup.string().required("Please fill in your DOB!"),
-          address: yup.string().required("Please fill in your address!"),
-          email: yup
-            .string()
-            .matches(
-              /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-              "Incorret format!"
-            )
-            .required("Please fill in your email!"),
-          phone: yup
-            .string()
-            .matches(/^[0][0-9]{9}$/, "Incorrect format (0123456789)!")
-            .required("Please fill in your phone!"),
-          gender: yup.string().required("Please choose your gender!"),
-          customerType: yup
-            .string()
-            .min(1)
-            .required("Please choose your gender!"),
-          idCard: yup
-            .string()
-            .matches(/^[0-9]{10}$/, "10-digit number!")
-            .required("ID card here!"),
-        })}
-        onSubmit={(values) => createCustomer(values)}
+        // validationSchema={yup.object({
+        //   name: yup.string().required("Please enter your name here!"),
+        //   dob: yup.string().required("Please fill in your DOB!"),
+        //   address: yup.string().required("Please fill in your address!"),
+        //   email: yup
+        //     .string()
+        //     .matches(
+        //       /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+        //       "Incorret format!"
+        //     )
+        //     .required("Please fill in your email!"),
+        //   phone: yup
+        //     .string()
+        //     .matches(/^[0][0-9]{9}$/, "Incorrect format (0123456789)!")
+        //     .required("Please fill in your phone!"),
+        //   gender: yup.string().required("Please choose your gender!"),
+        //   customerType: yup
+        //     .string()
+        //     .min(1)
+        //     .required("Please choose your gender!"),
+        //   idCard: yup
+        //     .string()
+        //     .matches(/^[0-9]{10}$/, "10-digit number!")
+        //     .required("ID card here!"),
+        // })}
+        onSubmit={(values, { setErrors }) => createCustomer(values, setErrors)}
       >
         <div className="page-wrapper bg-secondary p-t-180 p-b-100 font-robo">
           <div className="wrapper wrapper--w960">
