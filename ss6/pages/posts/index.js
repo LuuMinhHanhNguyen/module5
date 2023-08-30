@@ -51,7 +51,7 @@ export default function Home(props) {
                     <Link
                       href={{
                         pathname: "/posts/update",
-                        query: { id: el.id },
+                        query: { id: el.id, details: false },
                       }}
                       className=" btn btn-dark"
                     >

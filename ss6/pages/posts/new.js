@@ -5,17 +5,19 @@ import axios from "axios";
 import Router from "next/router";
 
 export default function NewBlog() {
-  const handleSubmit = (values) => {
+  const handleSubmit = async (values) => {
     const time = format(new Date(), "MMMM dd, yyyy pp");
     const newBlog = {
       ...values,
       slug: values.title.toLowerCase().replaceAll(" ", "-"),
       updatedAt: time,
     };
-    axios.post("http://localhost:8080/posts", newBlog);
-
-    alert("Successfully created!");
-    Router.back();
+    const res = await axios.post("http://localhost:8080/posts", newBlog);
+    console.log(res);
+    if (res.status === 201) {
+      alert("Successfully created!");
+      Router.back();
+    }
   };
 
   return (

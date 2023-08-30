@@ -9,12 +9,10 @@ import Router from "next/router";
 export default function UpdateBlog(props) {
   // * useRouter is a client-side hook,
   // so it will work here but not in getServerSideProps()
-  const router = useRouter();
-  // Get the query parameter from the URL
-  const { id, details } = router.query;
-  const [showDetails, setShowDetails] = useState(details);
-  console.log("ID" + id);
-  console.log(showDetails);
+  // we use it to get the query parameter from the URL
+  // const router = useRouter();
+  // const {id, details } = router.query;
+  // console.log("ID" + id);
 
   const handleSubmit = async (values) => {
     const time = format(new Date(), "MMMM dd, yyyy pp");
@@ -24,18 +22,23 @@ export default function UpdateBlog(props) {
       updatedAt: time,
     };
     console.log("im here");
-    await axios.put(
+    const res = await axios.put(
       "http://localhost:8080/posts/" + updatedBlog.id,
       updatedBlog
     );
-    Router.back();
-    alert("Updated successfully!");
+    console.log(res);
+    if (res.status === 200) {
+      Router.back();
+      alert("Updated successfully!");
+    }
   };
 
   return (
     <>
       <div className=" container-sm">
-        <h1>{details ? "Post Details" : "Update Post"}</h1>
+        <h1>
+          {props.query.details == "true" ? "Post Details" : "Update Post"}
+        </h1>
         <Formik
           initialValues={{
             ...props.post,
@@ -60,7 +63,7 @@ export default function UpdateBlog(props) {
               <label htmlFor="title">Title:</label>
               <Field
                 type="text"
-                readOnly={details}
+                readOnly={props.query.details == "true"}
                 id="title"
                 name="title"
                 className=" form-control"
@@ -75,7 +78,7 @@ export default function UpdateBlog(props) {
               <label htmlFor="category">Category:</label>
               <Field
                 type="text"
-                readOnly={details}
+                readOnly={props.query.details == "true"}
                 id="category"
                 name="category"
                 className=" form-control"
@@ -89,7 +92,7 @@ export default function UpdateBlog(props) {
             <div>
               <label htmlFor="content">Content:</label>
               <Field
-                readOnly={details}
+                readOnly={props.query.details == "true"}
                 type="text"
                 id="content"
                 name="content"
@@ -104,7 +107,7 @@ export default function UpdateBlog(props) {
             <div>
               <label htmlFor="author">Author:</label>
               <Field
-                readOnly={details}
+                readOnly={props.query.details == "true"}
                 type="text"
                 id="author"
                 name="author"
@@ -119,7 +122,7 @@ export default function UpdateBlog(props) {
             <div>
               <label htmlFor="author_email">Author's Email:</label>
               <Field
-                readOnly={details}
+                readOnly={props.query.details == "true"}
                 type="text"
                 id="author_email"
                 name="author_email"
@@ -131,7 +134,7 @@ export default function UpdateBlog(props) {
                 className=" text-danger"
               ></ErrorMessage>
             </div>
-            {!details && (
+            {props.query.details != "true" && (
               <button type="submit" className=" btn btn-info my-3">
                 Update
               </button>
@@ -147,10 +150,10 @@ export async function getServerSideProps(context) {
   // only getServerSideProps(context) works in this case
   // since getServerSideProps is a server-side function
   // 'context' parameter is an object that contains various properties related to the request, including the query, params, and resolvedUrl
-
-  // access the router object through the context parameter
+  // access the router object through the context parameter & use the router object to access route information
   const { query, params, resolvedUrl } = context;
-  // use the router object to access route information
+
+  // these logs are shown in terminal
   console.log("yo");
   console.log(query);
   console.log(params);
@@ -161,6 +164,7 @@ export async function getServerSideProps(context) {
   return {
     props: {
       post: response.data,
+      query: query,
     },
   };
 }
