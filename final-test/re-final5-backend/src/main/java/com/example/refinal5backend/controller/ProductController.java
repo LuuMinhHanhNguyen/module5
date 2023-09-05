@@ -6,6 +6,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -28,7 +29,7 @@ public class ProductController {
     private iProductService iProductService;
     @GetMapping()
     public ResponseEntity<?> getProducts(@RequestParam("name") String name, @RequestParam("typeId") String typeId, @RequestParam("page") int page,@RequestParam("limit") int limit){
-        Pageable pageable = PageRequest.of(page, limit);
+        Pageable pageable = PageRequest.of(page, limit, Sort.by("total").ascending());
         System.out.println(typeId);
         return new ResponseEntity<>(iProductService.getAll(pageable, name, typeId), HttpStatus.OK);
     }
