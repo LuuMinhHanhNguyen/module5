@@ -10,8 +10,17 @@ export async function getAll(name, page, limit) {
   );
   console.log("uouo");
   console.log(JSON.stringify(response));
-  return response.data.content;
+  return response.data;
 }
+
+// export async function getAll(name, page, limit) {
+//   const response = await axios.get(
+//     `http://localhost:8080/facilities/all?name=${name}&page=${page}&limit=${limit}`
+//   );
+//   console.log("uouo");
+//   console.log(JSON.stringify(response));
+//   return response.data.content;
+// }
 
 export async function getFacility(id) {
   const response = await axios.get("http://localhost:8080/facilities/" + id);

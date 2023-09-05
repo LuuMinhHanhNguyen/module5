@@ -1,15 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "bootstrap/dist/css/bootstrap.css";
-import "./styles/index.css";
-import "./styles/aos.css";
-import "./styles/style.css";
-import "./styles/tiny-slider.css";
-import "./styles/main.css";
+import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import "bootstrap/dist/css/bootstrap.css";
 import { BrowserRouter } from "react-router-dom";
-import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

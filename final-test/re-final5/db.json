@@ -1,0 +1,84 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "code": "PD001",
+      "name": "product 2 updated",
+      "date": "2023-09-07",
+      "total": 2,
+      "type": {
+        "id": 1,
+        "name": "T-shirt"
+      }
+    },
+    {
+      "id": 2,
+      "code": "PD002",
+      "name": "product 2",
+      "date": "2023-09-02",
+      "total": 88,
+      "type": {
+        "id": 2,
+        "name": "Skirt"
+      }
+    },
+    {
+      "id": 3,
+      "code": "PD003",
+      "name": "P aaaa",
+      "date": "2023-09-01",
+      "total": 120,
+      "type": {
+        "id": 3,
+        "name": "Jeans"
+      }
+    },
+    {
+      "id": 4,
+      "code": "PD004",
+      "name": "Product4 updated",
+      "date": "2023-09-07",
+      "total": 200,
+      "type": {
+        "id": 1,
+        "name": "T-shirt"
+      }
+    },
+    {
+      "id": 5,
+      "code": "PD005",
+      "name": "product 5",
+      "date": "2023-09-02",
+      "total": 188,
+      "type": {
+        "id": 2,
+        "name": "Skirt"
+      }
+    },
+    {
+      "id": 6,
+      "code": "PD006",
+      "name": "P aaaa 6",
+      "date": "2023-09-01",
+      "total": 220,
+      "type": {
+        "id": 2,
+        "name": "Skirt"
+      }
+    }
+  ],
+  "productTypes": [
+    {
+      "id": 1,
+      "name": "T-shirt"
+    },
+    {
+      "id": 2,
+      "name": "Skirt"
+    },
+    {
+      "id": 3,
+      "name": "Jeans"
+    }
+  ]
+}

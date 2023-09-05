@@ -5,29 +5,11 @@ import swal from "sweetalert";
 export default function Main() {
   const [facilities, setFacilities] = useState([]);
   const [page, setPage] = useState(0);
-  const limit = 1;
-  const [totalPages, setTotalPages] = useState(0);
-
-  let createBtns = () => {
-    let temp = [];
-    for (let i = 0; i < totalPages; i++) {
-      temp.push(i);
-    }
-    return temp;
-  };
-  const [btns, setBtns] = useState();
-
-  const handleSetPage = (pageNum) => {
-    setPage(pageNum);
-  };
+  const limit = 3;
 
   async function findAll() {
     const data = await getAll("", page, limit);
-    console.log(JSON.stringify(data));
-    console.log("el" + data.totalElements);
-    console.log("pages" + data.totalPages);
-    setTotalPages(data.totalPages);
-    setFacilities(data.content);
+    setFacilities(data);
   }
 
   const handlePrevious = () => {
@@ -42,7 +24,7 @@ export default function Main() {
     const nextPage = page + 1;
 
     const data = await getAll("", nextPage, limit);
-    if (data.content.length > 0) {
+    if (data.length > 0) {
       setPage(nextPage);
       document.querySelector(".prevButton").disabled = false;
     } else document.querySelector(".nextButton").disabled = true;
@@ -68,10 +50,6 @@ export default function Main() {
   useEffect(() => {
     findAll();
   }, [page]);
-
-  useEffect(() => {
-    setBtns(createBtns());
-  }, [totalPages]);
 
   return (
     <>
@@ -149,22 +127,6 @@ export default function Main() {
               </div>
             </div>
           </div>
-
-
-          <div className="custom-paginate"></div>
-          {btns &&
-            btns.map((el, index) => {
-              return (
-                <button
-                  key={`btn${index}`}
-                  type="button"
-                  className=" btn btn-info nextButton"
-                  onClick={() => handleSetPage(index)}
-                >
-                  {el + 1}
-                </button>
-              );
-            })}
         </div>
       </div>
     </>
